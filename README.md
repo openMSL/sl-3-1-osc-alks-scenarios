@@ -15,7 +15,7 @@ The ALKS regulation also contains test scenarios at a functional level, which ar
 
 The ALKS regulation itself leaves room for interpretation, therefore one goal of this publication is the coordination on a common interpretation with partners. Hence, this work has also been conducted in the context of the German research project [SET Level](https://setlevel.de). 
 
-BMW has taken on the task of implementing the test scenarios from the ALKS regulation. Since exchange and compatibility via the tool landscape is vital, another goal is the implementation of the scenarios using an international standard. At the [ASAM e.V.](https://www.asam.net) members are developing the so called "OpenX" standards for the simulation domain like OpenSCENARIO (Release v1.3.0 5/2024) for scenario definitions and OpenDRIVE (Release v1.7 8/2021) for road network definitions. The implementation is using [OpenSCENARIO XML](https://www.asam.net/standards/detail/openscenario-xml/) and [OpenDRIVE](https://www.asam.net/standards/detail/opendrive/), resulting in a bundle of XML files executable with standard compliant simulators.
+BMW has taken on the task of implementing the test scenarios from the ALKS regulation. Since exchange and compatibility via the tool landscape is vital, another goal is the implementation of the scenarios using an international standard. At the [ASAM e.V.](https://www.asam.net) members are developing the so called "OpenX" standards for the simulation domain like OpenSCENARIO (Release v1.3.1 11/2024) for scenario definitions and OpenDRIVE (Release v1.8.1 11/2024) for road network definitions. The implementation is using [OpenSCENARIO XML](https://www.asam.net/standards/detail/openscenario-xml/) and [OpenDRIVE](https://www.asam.net/standards/detail/opendrive/), resulting in a bundle of XML files executable with standard compliant simulators.
 
 ### Content
 
@@ -60,7 +60,7 @@ Dependency: xsltproc is used to apply the xslt script to the scenario. Guide for
 
 OpenPASS does not provide an ALKS. Therefore, for demonstration purposes the vehicle under test is controlled by a so called "Algorithm Following Driver Model - AFDM", which is provided by openPASS. This model is parametrized to drive approximately at its target velocity of 60 km/h and keeps the lane. Other traffic participants are taken into account. For information on the integration of an ALKS in the simulation, we refer to the documentation of openPASS.
 
-Currently openPASS does not support the controller concept of OpenSCENARIO. Instead, entities and their controlling components are defined in the ProfilesCatalog.xml. Sourrounding entities are also controlled by the Algorithm Following Driver Model. Therefore, the velocities of the surrounding entities may differ slightly from the definitions in the scenarios. 
+Currently openPASS does not support the controller concept of OpenSCENARIO. Instead, entities and their controlling components are defined in the ProfilesCatalog.xml. Surrounding entities are also controlled by the Algorithm Following Driver Model. Therefore, the velocities of the surrounding entities may differ slightly from the definitions in the scenarios. 
 
 ### Linux
 
@@ -116,7 +116,7 @@ Architecturally this could be achieved in different ways:
 As a first proof-of-concept the scenarios have been integrated and simulated in [openPASS 0.7](https://gitlab.eclipse.org/eclipse/simopenpass/simopenpass/-/tree/openPASS_0.7) at BMW. In addition the open source tool esmini can be used as described above.
 
 The validation of the scenarios and maps provided in this repository is integrated into the CI workflow. There are two validation mechanisms implemented with GitHub actions:
-1. Syntactic validation of the scenarios and maps against the XSD schemas of the OpenSCENARIO 1.1 and OpenDRIVE 1.6 standards with xmllint
+1. Syntactic validation of the scenarios and maps against the XSD schemas of the OpenSCENARIO 1.3 and OpenDRIVE 1.6 standards with xmllint
 2. Syntactic and semantic validation of the scenarios with the *Standalone Checker* of the [OpenSCENARIO API](https://github.com/RA-Consulting-GmbH/openscenario.api.test). Integration into the CI is prepared by a [GitHub action](https://github.com/ahege/openscenario.ci.test) and an [example](https://github.com/ahege/opensceanrio.ci.example.test/)
 
 _Note:_ The *Standalone Checker* does not yet support OpenSCENARIO 1.1. Those checks are only applied including [release v0.3.2](https://github.com/asam-oss/OSC-ALKS-scenarios/releases/tag/v0.3.2)

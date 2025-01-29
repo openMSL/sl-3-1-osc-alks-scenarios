@@ -49,7 +49,7 @@ jobs:
           ./logical_scenarios/alks_scenario_4_5_2_cut_out_multiple_blocking_targets_variation.xosc \
           ./logical_scenarios/alks_scenario_4_6_1_forward_detection_range_variation.xosc \
           ./logical_scenarios/alks_scenario_4_6_2_lateral_detection_range_variation.xosc"
-          SCHEMA: ./.github/workflows/OpenSCENARIO_StrictValidation_1_1.xsd
+          SCHEMA: ./.github/workflows/OpenSCENARIO_StrictValidation_1_3.xsd
       - name: Validate all maps
         uses: ./.github/actions/xmllint
         with:

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) 2020-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG) -->
 <OpenSCENARIO>
-  <FileHeader revMajor="1" revMinor="1" date="2021-07-09T10:00:00" description="ALKS Scenario 4.4_1 CutInNoCollision Template" author="BMW AG">
+  <FileHeader revMajor="1" revMinor="3" date="2021-07-09T10:00:00" description="ALKS Scenario 4.4_1 CutInNoCollision Template" author="BMW AG">
     <License name="Mozilla Public License Version 2.0" resource="https://www.mozilla.org/en-US/MPL/2.0/" spdxId="MPL-2.0" />
   </FileHeader>
   <ParameterDeclarations>
@@ -16,7 +16,7 @@
     <ParameterDeclaration name="CutInVehicle_Model" parameterType="string" value="car">
       <!--Not constrained so it's possible to use different models.-->
     </ParameterDeclaration>
-    <ParameterDeclaration name="CutInVehicle_InitPosition_RelativeLaneId" parameterType="integer" value="-1">
+    <ParameterDeclaration name="CutInVehicle_InitPosition_RelativeLaneId" parameterType="int" value="-1">
       <ConstraintGroup>
         <ValueConstraint rule="equalTo" value="-1" />
       </ConstraintGroup>
@@ -135,7 +135,7 @@
             <EntityRef entityRef="Ego" />
           </Actors>
           <Maneuver name="ActivateALKSControllerManeuver">
-            <Event name="ActivateALKSControllerEvent" priority="overwrite">
+            <Event name="ActivateALKSControllerEvent" priority="override">
               <Action name="ActivateALKSControllerAction">
                 <PrivateAction>
                   <ControllerAction>
@@ -173,7 +173,7 @@
             <EntityRef entityRef="CutInVehicle" />
           </Actors>
           <Maneuver name="CutInManeuver">
-            <Event name="CutInEvent" priority="overwrite">
+            <Event name="CutInEvent" priority="override">
               <Action name="CutInAction">
                 <PrivateAction>
                   <LateralAction>
