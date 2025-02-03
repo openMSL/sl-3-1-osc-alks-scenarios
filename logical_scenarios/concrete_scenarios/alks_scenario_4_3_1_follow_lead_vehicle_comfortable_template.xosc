@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <!-- Copyright (c) 2020-2024, Bayerische Motoren Werke Aktiengesellschaft (BMW AG) -->
 <OpenSCENARIO>
-  <FileHeader revMajor="1" revMinor="1" date="2021-07-09T10:00:00" description="ALKS Scenario 4.3_1 FollowLeadVehicleComfortable Template" author="BMW AG">
+  <FileHeader revMajor="1" revMinor="3" date="2021-07-09T10:00:00" description="ALKS Scenario 4.3_1 FollowLeadVehicleComfortable Template" author="BMW AG">
     <License name="Mozilla Public License Version 2.0" resource="https://www.mozilla.org/en-US/MPL/2.0/" spdxId="MPL-2.0" />
   </FileHeader>
   <ParameterDeclarations>
@@ -152,7 +152,7 @@
             <EntityRef entityRef="Ego" />
           </Actors>
           <Maneuver name="ActivateALKSControllerManeuver">
-            <Event name="ActivateALKSControllerEvent" priority="overwrite">
+            <Event name="ActivateALKSControllerEvent" priority="override">
               <Action name="ActivateALKSControllerAction">
                 <PrivateAction>
                   <ControllerAction>
@@ -190,7 +190,7 @@
             <EntityRef entityRef="LeadVehicle" />
           </Actors>
           <Maneuver name="VaryingSpeedManeuver">
-            <Event name="VaryingSpeedEvent" priority="overwrite">
+            <Event name="VaryingSpeedEvent" priority="override">
               <Action name="VaryingSpeedAction">
                 <PrivateAction>
                   <LongitudinalAction>
@@ -213,7 +213,7 @@
                 </ConditionGroup>
               </StartTrigger>
             </Event>
-            <Event name="VaryingSpeedEvent2" priority="overwrite">
+            <Event name="VaryingSpeedEvent2" priority="override">
               <Action name="VaryingSpeedAction2">
                 <PrivateAction>
                   <LongitudinalAction>
