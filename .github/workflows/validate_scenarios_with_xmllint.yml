@@ -1,0 +1,52 @@
+name: Validate scenario files with xmllint
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  validate_scenario_files_with_xmllint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@master
+      - name: Validate all scenarios
+        uses: ./.github/actions/xmllint
+        with:
+          FILE: "./logical_scenarios/concrete_scenarios/alks_scenario_4_1_1_free_driving_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_1_2_swerving_lead_vehicle_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_1_3_side_vehicle_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_2_1_fully_blocking_target_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_2_2_partially_blocking_target_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_2_3_crossing_pedestrian_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_2_4_multiple_blocking_targets_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_3_1_follow_lead_vehicle_comfortable_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_3_2_follow_lead_vehicle_emergency_brake_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_4_1_cut_in_no_collision_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_4_2_cut_in_unavoidable_collision_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_5_1_cut_out_fully_blocking_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_5_2_cut_out_multiple_blocking_targets_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_6_1_forward_detection_range_template.xosc \
+          ./logical_scenarios/concrete_scenarios/alks_scenario_4_6_2_lateral_detection_range_template.xosc \
+          ./logical_scenarios/concrete_scenarios/catalogs/controllers/controller_catalog.xosc \
+          ./logical_scenarios/concrete_scenarios/catalogs/misc_objects/misc_object_catalog.xosc \
+          ./logical_scenarios/concrete_scenarios/catalogs/vehicles/vehicle_catalog.xosc \
+          ./logical_scenarios/concrete_scenarios/catalogs/pedestrians/pedestrian_catalog.xosc \
+          ./logical_scenarios/alks_scenario_4_1_1_free_driving_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_1_2_swerving_lead_vehicle_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_1_3_side_vehicle_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_2_1_fully_blocking_target_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_2_2_partially_blocking_target_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_2_3_crossing_pedestrian_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_2_4_multiple_blocking_targets_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_3_1_follow_lead_vehicle_comfortable_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_3_2_follow_lead_vehicle_emergency_brake_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_3_2_follow_lead_vehicle_emergency_brake_variation_reference.xosc \
+          ./logical_scenarios/alks_scenario_4_4_1_cut_in_no_collision_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_5_1_cut_out_fully_blocking_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_5_2_cut_out_multiple_blocking_targets_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_6_1_forward_detection_range_variation.xosc \
+          ./logical_scenarios/alks_scenario_4_6_2_lateral_detection_range_variation.xosc"
+          SCHEMA: ./.github/workflows/OpenSCENARIO_StrictValidation_1_3.xsd
