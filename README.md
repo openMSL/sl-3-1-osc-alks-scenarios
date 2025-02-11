@@ -115,9 +115,10 @@ Architecturally this could be achieved in different ways:
 
 As a first proof-of-concept the scenarios have been integrated and simulated in [openPASS 0.7](https://gitlab.eclipse.org/eclipse/simopenpass/simopenpass/-/tree/openPASS_0.7) at BMW. In addition the open source tool esmini can be used as described above.
 
-The validation of the scenarios and maps provided in this repository is integrated into the CI workflow. There are two validation mechanisms implemented with GitHub actions:
-1. Syntactic validation of the scenarios and maps against the XSD schemas of the OpenSCENARIO 1.3 and OpenDRIVE 1.6 standards with xmllint
-2. Syntactic and semantic validation of the scenarios with the *Standalone Checker* of the [OpenSCENARIO API](https://github.com/RA-Consulting-GmbH/openscenario.api.test). Integration into the CI is prepared by a [GitHub action](https://github.com/ahege/openscenario.ci.test) and an [example](https://github.com/ahege/opensceanrio.ci.example.test/)
+The validation of the scenarios and maps provided in this repository is integrated into the CI workflow. There are three validation mechanisms implemented with GitHub actions:
+1. Syntactic validation of the scenarios against the XSD schema of the OpenSCENARIO 1.3 standard with xmllint
+2. Syntactic validation of the maps against the XSD schema of OpenDRIVE 1.8 standard with xsd11-validator (OpenDRIVE 1.8 schema uses XSD 1.1 elements)
+3. Syntactic and semantic validation of the scenarios with the *Standalone Checker* of the [OpenSCENARIO API](https://github.com/RA-Consulting-GmbH/openscenario.api.test). Integration into the CI is prepared by a [GitHub action](https://github.com/ahege/openscenario.ci.test) and an [example](https://github.com/ahege/opensceanrio.ci.example.test/)
 
 _Note:_ The *Standalone Checker* does not yet support OpenSCENARIO 1.1. Those checks are only applied including [release v0.3.2](https://github.com/asam-oss/OSC-ALKS-scenarios/releases/tag/v0.3.2)
 
@@ -130,5 +131,7 @@ The XSD schema of OpenSCENARIO is used under the license of ASAM, which can be f
 The XSD schemas of OpenDRIVE are used under the license of ASAM, which can be found [here](https://www.asam.net/index.php?eID=dumpFile&t=f&f=4422&token=e590561f3c39aa2260e5442e29e93f6693d1cccd)
 
 The *Standalone Checker* of the OpenSCENARIO API and the corresponding GitHub action are used under the [Apache 2.0](https://github.com/RA-Consulting-GmbH/openscenario.api.test/blob/master/LICENSE) license.
+
+The [xsd11-validator](https://github.com/jeszy75/xsd11-validator) is used under the [Apache 2.0](https://github.com/RA-Consulting-GmbH/openscenario.api.test/blob/master/LICENSE) license.
 
 BMW is not liable for the correctness and completeness of the OpenSCENARIO files. The legal text is authoritative.
