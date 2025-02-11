@@ -1,4 +1,4 @@
-FROM ubuntu:16.04
+FROM ubuntu:24.04
 RUN apt-get update && \
     apt-get -y --no-install-recommends install default-jre && \
     apt-get autoremove -y && \
