@@ -15,10 +15,5 @@ jobs:
       - name: Validate all maps
         uses: ./.github/actions/xsd11-validator
         with:
-          FILES: "./logical_scenarios/concrete_scenarios/road_networks/alks_road_straight.xodr \
-          ./logical_scenarios/concrete_scenarios/road_networks/alks_road_left_radius_250m.xodr \
-          ./logical_scenarios/concrete_scenarios/road_networks/alks_road_right_radius_250m.xodr \
-          ./logical_scenarios/concrete_scenarios/road_networks/alks_road_left_radius_1000m.xodr \
-          ./logical_scenarios/concrete_scenarios/road_networks/alks_road_right_radius_1000m.xodr \
-          ./logical_scenarios/concrete_scenarios/road_networks/alks_road_different_curvatures.xodr"
+          FILES: "./logical_scenarios/concrete_scenarios/road_networks/*.xodr"
           SCHEMA: ./.github/workflows/OpenDRIVE_Core.xsd
